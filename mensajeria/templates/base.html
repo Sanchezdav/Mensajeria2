@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+  <meta charset='utf-8'>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <title>{% block titulo %}{% endblock %}</title>
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/estilos.css" type="text/css">
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/tabla.css" type="text/css">
+  <script type='text/javascript' src="{{ STATIC_URL }}js/jquery-1.10.2.min.js"></script>
+  <script type='text/javascript' src="{{ STATIC_URL }}js/script.js"></script>
+</head>
+<body>
+  <header>
+    <figure id="logo-header">
+      <img src="" alt="">
+    </figure>
+  	<div id="titulo-header">
+      <h1>Mensajeria</h1> 
+    </div>
+    <div id="botones-header">
+      <a href="">Login</a>
+      <a href="">Admin</a>
+    </div>
+  </header>	
+  <nav>
+    <li><a href="">Notificador</a></li>
+    <li><a href="">Ausencias</a></li>
+    <li><a href="">Servicios</a></li>
+    <li><a href="">Pendientes</a></li>
+  </nav>
+	<section id='cabecera'>
+    <div id="titulo-cabecera">
+      <h2>{% block cabecera %}{% endblock %}</h2>
+    </div>
+    {% if user.is_authenticated %}
+      <div id="bienvenido">
+        <span><em>Bienvenido <strong>{{user.username|capfirst}}</strong></em></span><br>
+      </div>
+    {% endif %}
+  </section>
+  <section id="contenido">
+    {% block contenido %}{% endblock %}
+  </section>
+  <footer>
+  	<div id="copyright">
+      <span>Copyright &copy;</span><br><br>
+      <span>Diseñado para: <em><strong>Direccion de Politica Fiscal</strong></em></span><br><br>
+      <span>Diseñado por: <em><strong>Fausto David Sanchez Salazar</strong></em></span><br><br>
+      <span>Correo: <em><strong>sanchez.dav90@gmail.com</strong></em></span> 
+    </div>
+     <figure id="logo-footer">
+       <img src="{{ STATIC_URL }}img/logo1.png" alt="Gobierno del Estado de Mexico">
+     </figure>
+  </footer>
+</body>
+</html>

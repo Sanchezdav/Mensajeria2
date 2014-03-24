@@ -6,50 +6,57 @@
   <title>{% block titulo %}{% endblock %}</title>
   <link rel="stylesheet" href="{{ STATIC_URL }}css/estilos.css" type="text/css">
   <link rel="stylesheet" href="{{ STATIC_URL }}css/tabla.css" type="text/css">
+  <link href='http://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps' rel='stylesheet' type='text/css'>
+  <link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon.ico" />
   <script type='text/javascript' src="{{ STATIC_URL }}js/jquery-1.10.2.min.js"></script>
   <script type='text/javascript' src="{{ STATIC_URL }}js/script.js"></script>
 </head>
 <body>
   <header>
     <figure id="logo-header">
-      <img src="" alt="">
+      <a href="/"><img src="{{ STATIC_URL }}img/logo-header.png" alt="Gobierno que cumple" width='150px'></a>
     </figure>
   	<div id="titulo-header">
       <h1>Mensajeria</h1> 
     </div>
     <div id="botones-header">
-      <a href="">Login</a>
-      <a href="">Admin</a>
-    </div>
-  </header>	
-  <nav>
-    <li><a href="">Notificador</a></li>
-    <li><a href="">Ausencias</a></li>
-    <li><a href="">Servicios</a></li>
-    <li><a href="">Pendientes</a></li>
-  </nav>
-	<section id='cabecera'>
-    <div id="titulo-cabecera">
-      <h2>{% block cabecera %}{% endblock %}</h2>
+      {% if user.is_authenticated %}
+               <a href="/salir/" class='boton-header'>Salir</a> 
+            {% else %}
+                <a href="/ingresar/" class='boton-header'>Login</a>
+            {% endif %}
+      <a href="/admin/" class='boton-header'>Admin</a>
     </div>
     {% if user.is_authenticated %}
       <div id="bienvenido">
         <span><em>Bienvenido <strong>{{user.username|capfirst}}</strong></em></span><br>
       </div>
     {% endif %}
-  </section>
+  </header>	
+  <nav>
+    <ul>
+      <li><a href="/">Notificador</a></li>
+      <li><a href="/ausencias/">Ausencias</a></li>
+      <li><a href="/servicios/">Servicios</a></li>
+      <li><a href="/pendientes/">Pendientes</a></li>
+    </ul>
+  </nav>
+    <div id="titulo-cabecera">
+      <h2>{% block cabecera %}{% endblock %}</h2>
+    </div>
   <section id="contenido">
     {% block contenido %}{% endblock %}
   </section>
   <footer>
   	<div id="copyright">
-      <span>Copyright &copy;</span><br><br>
-      <span>Diseñado para: <em><strong>Direccion de Politica Fiscal</strong></em></span><br><br>
-      <span>Diseñado por: <em><strong>Fausto David Sanchez Salazar</strong></em></span><br><br>
-      <span>Correo: <em><strong>sanchez.dav90@gmail.com</strong></em></span> 
+      <span>Copyright &copy;</span><br>
+      <span>Diseñado para: <em><strong>Direccion de Politica Fiscal</strong></em></span><br>
+      <span>Diseñado por: <em><strong>Fausto David Sanchez Salazar</strong></em></span><br>
+      <span>Correo: <em><strong>sanchez.dav90@gmail.com</strong></em></span><br>
+      <span><em><strong>Version 2.0</strong></em></span>
     </div>
      <figure id="logo-footer">
-       <img src="{{ STATIC_URL }}img/logo1.png" alt="Gobierno del Estado de Mexico">
+       <img src="{{ STATIC_URL }}img/logo-footer.png" alt="Gobierno del Estado de Mexico" width='150px'>
      </figure>
   </footer>
 </body>

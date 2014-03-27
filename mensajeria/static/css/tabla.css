@@ -119,16 +119,3 @@
 	background: none; 
 	background-color:#36752D;
 }
-
-@media screen and (max-width: 768px)
-{
-	.datagrid
-	{
-		width: 100%;
-	}
-
-	.datagrid table
-	{
-		width: 100%;
-	}
-}

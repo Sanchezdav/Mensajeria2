@@ -130,7 +130,7 @@ header .boton-header
 	box-shadow: rgba(0,0,0,0.6) 5px 5px 20px;
 	color: white;
 	font-weight: bold;
-	padding: .5em 1em;
+	padding: .5em 1.5em;
 	text-shadow: rgba(0,0,0,0.6) 2px 2px 5px;
 	margin: .5em 1em;
 	text-decoration: none;
@@ -491,3 +491,233 @@ input {
   padding: 0;
 }
 /*--------------------------------End Login----------------------------------*/
+
+/*--------------------------------Media Queries----------------------------------*/
+@media screen and (min-width : 768px) and (max-width : 1024px) and (orientation:portrait)
+{
+	header #bienvenido
+	{
+		right: 11.5em;
+		top: 0;
+		height: 10%;
+		padding: .5em;
+		position: absolute;
+		vertical-align: top;
+		width: 20%;
+	}
+
+	header #titulo-header
+	{
+		margin:.3em;
+		vertical-align: bottom;
+		width: 45%;
+	}
+
+	header #titulo-header h1
+	{
+		font-size: 4em;
+	}
+
+	#botones-header
+	{
+		text-align: center;
+		width: 15%;
+	}
+
+	#logo-header
+	{
+		margin: .3em;
+		margin-right: .5em;
+	}
+
+	#logo-header img
+	{
+		width: 100px;
+	}
+
+	.boton-header
+	{
+		display: block;
+		margin: .3em;
+		text-align: center;
+		width: 35%;
+	}
+
+	nav
+	{
+		text-align: center;
+	}
+
+	nav ul li
+	{
+		display: block;
+		margin: .3em auto;
+		width: 100%;
+	}
+
+	nav ul li a
+	{
+		padding: .3em 14em;
+		
+	}
+
+}
+
+@media screen and (min-width : 768px) and (max-width : 1024px) and (orientation:landscape)
+{
+	header #bienvenido
+	{
+		right: 12em;
+		top: 0;
+		height: 10%;
+		padding: .5em;
+		position: absolute;
+		vertical-align: top;
+		width: 20%;
+	}
+
+	header #titulo-header
+	{
+		margin:.5em;
+		vertical-align: bottom;
+		width: 45%;
+	}
+
+	header #titulo-header h1
+	{
+		font-size: 6em;
+	}
+
+	#botones-header
+	{
+		text-align: center;
+		width: 15%;
+	}
+
+	#logo-header
+	{
+		margin: .3em;
+		margin-right: .5em;
+	}
+
+	.boton-header
+	{
+		display: block;
+		margin: .3em;
+		text-align: center;
+		width: 35%;
+	}
+	nav
+	{
+		font-size: 1.3em;
+		font-weight: bold;
+		padding: .5em;
+		text-align: center;
+		width: 100%;
+	}
+
+	nav ul li
+	{
+		display: inline-block;
+		margin: .8em;
+		margin-right: 1.3em;
+		margin-top: ..8em;
+	}
+
+	nav ul li a
+	{
+		padding: 1.3em 1.4em;
+		padding-top: 1.4em;
+	}
+
+}
+
+@media screen and (min-width : 1050px) and (max-width : 1100px)
+{
+	#botones-header
+	{
+		text-align: right;
+		width: 15%;
+	}
+
+	.boton-header
+	{
+		display: inline-block;
+		margin: .3em;
+		text-align: center;
+		width: 35%;
+	}
+
+	header #titulo-header
+	{
+		margin: .5em;
+		vertical-align: bottom;
+		width: 55%;
+	}
+
+	nav
+	{
+		font-size: 1.3em;
+		font-weight: bold;
+		padding: .5em;
+		text-align: center;
+		width: 100%;
+	}
+
+	nav ul li
+	{
+		display: inline-block;
+		margin: .8em;
+		margin-right: 1.3em;
+		margin-top: .8em;
+	}
+
+	nav ul li a
+	{
+		padding: 1.3em 1.4em;
+		padding-top: 1.4em;
+	}
+}
+
+@media screen and (min-width : 1000px) and (max-width : 1280px)
+{
+	#botones-header
+	{
+		text-align: right;
+		width: 15%;
+	}
+
+	.boton-header
+	{
+		display: inline-block;
+		margin: .3em;
+		text-align: center;
+		width: 35%;
+	}
+}
+
+@media screen and (min-width : 900px) and (max-width : 1050px)
+{
+	nav
+	{
+		font-size: 1.3em;
+		font-weight: bold;
+		padding: .5em;
+		text-align: center;
+		width: 100%;
+	}
+
+	nav ul li
+	{
+		display: inline-block;
+		margin: .8em;
+		margin-right: 1.3em;
+		margin-top: ..8em;
+	}
+
+	nav ul li a
+	{
+		padding: 1.3em 1.4em;
+		padding-top: 1.4em;
+	}	
+}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Lista de Notificadores{% endblock %}
+
+{% block cabecera %}Lista de Notificadores{% endblock %}
+
+{% block contenido %}
+	<script>setTimeout(function(){window.location.reload()},25000)</script>
+		<div class = "datagrid">
+		<table  border="1">
+			<thead><tr><th>Id</th><th>Notificador</th><th>Status</th><th>Editar</th></tr></thead>
+			<tfoot><tr><td colspan="4">
+			</td></tr></tfoot>
+			<tbody>
+					{% for item in notificadores %}
+							<tr>
+								<td>{{ forloop.counter }}</td>
+								<td>{{ item.nombre|capfirst }}</td>
+								<td>{{ item.statusNotificador }}</td>
+							{% if user.is_authenticated == False %}	
+								<td><a class="boton-header" href="ausencias/{{item.id}}">Editar Status</a></td></tr>
+							{% else %}
+									<td><p>No se puede editar</p></td></tr>
+							{% endif %}
+					{% endfor %}
+			</tbody>
+		</table>
+{% endblock %}

@@ -5,6 +5,7 @@
 {% block cabecera %}Finaliza los servicios pendientes{% endblock %}
 
 {% block contenido %}
+	<script>setTimeout(function(){window.location.reload()},40000)</script>
 		<div class = "datagrid">
 				<table>
 					<thead><tr><th>Servicio</th><th>Solicitante</th><th>Notificador</th><th>Fecha y Hora de Inicio</th><th>Sitio</th><th>Actividad</th><th>Comentarios</th><th>Enterado</th><th>Finalizar</th></tr></thead>
@@ -26,7 +27,7 @@
 							{% for item in servicios %}
 								{% if item.fechaFin == Null %}
 									<tr>
-										<td>{{item}}</td>
+										<td>{{forloop.counter}}</td>
 										<td>{{item.solicitante|capfirst}}</td>
 										<td>{{item.notificador}}</td>
 										<td>{{item.fechaInicio}}</td>

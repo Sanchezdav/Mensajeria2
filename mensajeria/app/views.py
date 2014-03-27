@@ -1,13 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.views.generic import CreateView
+from django.views.generic import CreateView, UpdateView, ListView
 from django.core.urlresolvers import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 
-from .models import Servicio, Status
-from .forms import ServicioForm
+from .models import Servicio, Status, Notificador
+from .forms import ServicioForm, AusenciaForm
 
 def listing(request):
     lista_servicios = Servicio.objects.filter(fechaFin__isnull=True)
@@ -21,10 +21,6 @@ def listing(request):
     except EmptyPage:
         servicios = paginator.page(paginator.num_pages)
     return render(request, 'index.html', {"servicios": servicios})
-
-
-def ausencias(request):
-	return render(request, 'ausencias.html', {})
 
 class ServiciosForm(CreateView):
     model = Servicio
@@ -82,3 +78,27 @@ def pendientes(request):
         servicios = paginator.page(paginator.num_pages)
 
     return render(request, 'pendientes.html', {"servicios": servicios})
+
+class NotificadorList(ListView):
+      model = Notificador
+      template_name = 'lista-notificadores.html'
+      context_object_name = 'notificadores'
+
+class NotificadorUpdate(UpdateView):
+    model =Notificador
+    template_name="ausencias.html"
+    form_class = AusenciaForm
+    success_url = reverse_lazy('listNoti')
+
+def listingTable(request):
+    lista_servicios = Servicio.objects.filter(fechaFin__isnull=True)
+    paginator = Paginator(lista_servicios, 8, orphans=3) 
+
+    page = request.GET.get('page')
+    try:
+        servicios = paginator.page(page)
+    except PageNotAnInteger:
+        servicios = paginator.page(1)
+    except EmptyPage:
+        servicios = paginator.page(paginator.num_pages)
+    return render(request, 'table.html', {"servicios": servicios})

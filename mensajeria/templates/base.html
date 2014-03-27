@@ -25,7 +25,7 @@
             {% else %}
                 <a href="/ingresar/" class='boton-header'>Login</a>
             {% endif %}
-      <a href="/admin/" class='boton-header'>Admin</a>
+      <a href="/admin/" class='boton-header' target='_blank'>Admin</a>
     </div>
     {% if user.is_authenticated %}
       <div id="bienvenido">
@@ -35,8 +35,8 @@
   </header>	
   <nav>
     <ul>
-      <li><a href="/">Notificador</a></li>
-      <li><a href="/ausencias/">Ausencias</a></li>
+      <li><a href="/">Notificadores</a></li>
+      <li><a href="/listaNoti/">Ausencias</a></li>
       <li><a href="/servicios/">Servicios</a></li>
       <li><a href="/pendientes/">Pendientes</a></li>
     </ul>

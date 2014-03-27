@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'django_admin_bootstrapped',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 	'app',
     'south',
+    'report_builder',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -97,3 +99,6 @@ from django.core.urlresolvers import reverse_lazy
 LOGIN_URL = reverse_lazy('login')
 LOGIN_REDIRECT_URL = reverse_lazy('notificadores')
 LOGOUT_URL = reverse_lazy('logout')
+
+REPORT_BUILDER_GLOBAL_EXPORT = True
+REPORT_BUILDER_INCLUDE = ['servicio', 'usuario']

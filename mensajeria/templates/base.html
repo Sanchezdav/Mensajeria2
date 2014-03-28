@@ -35,10 +35,10 @@
   </header>	
   <nav>
     <ul>
-      <li><a href="/">Notificadores</a></li>
-      <li><a href="/listaNoti/">Ausencias</a></li>
-      <li><a href="/servicios/">Servicios</a></li>
-      <li><a href="/pendientes/">Pendientes</a></li>
+      <li><a href="/" {% if request.path == '/' %} class="activo" {% endif %}>Notificadores</a></li>
+      <li><a href="/listaNoti/" {% if request.path == '/listaNoti/' %} class="activo" {% endif %}>Ausencias</a></li>
+      <li><a href="/servicios/" {% if request.path == '/servicios/' %} class="activo" {% endif %}>Servicios</a></li>
+      <li><a href="/pendientes/" {% if request.path == '/pendientes/' %} class="activo" {% endif %}>Pendientes</a></li>
     </ul>
   </nav>
     <div id="titulo-cabecera">

@@ -271,6 +271,15 @@ nav ul li a:hover
 	margin-left: 1em;
 }
 
+.activo
+{
+	background: rgb(0,128,0);
+	color: white;
+	padding: 1.3em 1.4em;
+	padding-top: 1.4em;
+	text-decoration: none;
+}
+
 .aviso
 {
 	font-size: 2em;

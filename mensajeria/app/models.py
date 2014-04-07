@@ -52,7 +52,7 @@ class TipoServicio(models.Model):
 		return self.tipoServicio
 
 class Ausencia(models.Model):
-	noti = models.ForeignKey(Notificador)
+	noti = models.ForeignKey(Notificador, verbose_name='Notificador')
 	motivo = models.ForeignKey(Status)
 	fechaInicio = models.DateTimeField(auto_now_add=True)
 	fechaFin = models.DateTimeField(auto_now_add=False, blank=True, null=True)

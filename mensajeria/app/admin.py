@@ -20,6 +20,7 @@ class StatusAdmin(admin.ModelAdmin):
 
 class AusenciaAdmin(admin.ModelAdmin):
 	list_display = ('id','noti', 'motivo', 'fechaInicio', 'fechaFin')
+	list_filter = ('noti', 'motivo')
 	raw_id_fields = ('noti',)
 
 admin.site.register(Usuario, UsuarioAdmin)

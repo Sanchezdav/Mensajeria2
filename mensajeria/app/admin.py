@@ -18,9 +18,14 @@ class ServicioAdmin(admin.ModelAdmin):
 class StatusAdmin(admin.ModelAdmin):
 	list_display = ("id", "status")
 
+class AusenciaAdmin(admin.ModelAdmin):
+	list_display = ('id','noti', 'motivo', 'fechaInicio', 'fechaFin')
+	raw_id_fields = ('noti',)
+
 admin.site.register(Usuario, UsuarioAdmin)
 admin.site.register(Status, StatusAdmin)
 admin.site.register(Notificador, NotificadorAdmin)
 admin.site.register(Sitio)
 admin.site.register(TipoServicio)
 admin.site.register(Servicio, ServicioAdmin)
+admin.site.register(Ausencia, AusenciaAdmin)

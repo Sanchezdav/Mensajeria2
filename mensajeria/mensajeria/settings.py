@@ -12,13 +12,6 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
-from django.conf import global_settings
-
-TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
-    'django.core.context_processors.request',
-)
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -37,7 +30,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'django_admin_bootstrapped',
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,7 +38,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 	'app',
-    'south',
     'report_builder',
 )
 
@@ -109,3 +101,6 @@ LOGOUT_URL = reverse_lazy('logout')
 
 REPORT_BUILDER_GLOBAL_EXPORT = True
 REPORT_BUILDER_INCLUDE = ['servicio', 'usuario']
+
+#grappelli
+GRAPPELLI_ADMIN_TITLE = 'Mensajeria'

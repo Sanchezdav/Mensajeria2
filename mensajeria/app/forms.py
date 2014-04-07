@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from app.models import Servicio, Notificador
+from app.models import Servicio, Notificador, Ausencia
 
 class ServicioForm(ModelForm):
 	notificador = forms.ModelChoiceField(queryset=Notificador.objects.all().filter(statusNotificador=1))
@@ -9,7 +9,7 @@ class ServicioForm(ModelForm):
 		exclude = ('solicitante', 'fechaEnterado', 'fechaFin')
 
 class AusenciaForm(ModelForm):
-	nombre = forms.ModelChoiceField(queryset=Notificador.objects.all())
+	noti = forms.ModelChoiceField(queryset=Notificador.objects.all())
 	class Meta:
-		model = Notificador
-		exclude = ('apePaterno', 'apeMaterno',)
+		model = Ausencia
+		exclude = ('fechaInicio', 'fechaFin',)

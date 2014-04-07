@@ -51,6 +51,15 @@ class TipoServicio(models.Model):
 	def __unicode__(self):
 		return self.tipoServicio
 
+class Ausencia(models.Model):
+	noti = models.ForeignKey(Notificador)
+	motivo = models.ForeignKey(Status)
+	fechaInicio = models.DateTimeField(auto_now_add=True)
+	fechaFin = models.DateTimeField(auto_now_add=False, blank=True, null=True)
+
+	def __unicode__(self):
+		return unicode(self.id)
+
 class Servicio(models.Model):
 	solicitante = models.ForeignKey(User)
 	notificador = models.ForeignKey(Notificador)

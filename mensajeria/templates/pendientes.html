@@ -7,7 +7,7 @@
 {% block contenido %}
 	<script>setTimeout(function(){window.location.reload()},40000)</script>
 		<div class = "datagrid">
-				<table>
+				<table border=1>
 					<thead><tr><th>Servicio</th><th>Solicitante</th><th>Notificador</th><th>Fecha y Hora de Inicio</th><th>Sitio</th><th>Actividad</th><th>Comentarios</th><th>Enterado</th><th>Finalizar</th></tr></thead>
 
 					<tfoot><tr><td colspan="9">
@@ -46,7 +46,7 @@
 								{% endif %}
 							{% endfor %}
 						{% else %}
-							<td colspan="7"><span class="aviso">No hay servicios en proceso</span></td>
+							<td colspan="9"><span class="aviso">No hay servicios en proceso</span></td>
 						{% endif %}
 					</tbody>
 				</table>

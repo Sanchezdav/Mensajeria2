@@ -6,8 +6,9 @@ from app.views import *
 
 urlpatterns = patterns('',
     url(r'^$', 'app.views.listing', name='notificadores'),
-    url(r'^listaNoti/$', NotificadorList.as_view(), name='listNoti'),
-    url(r'^listaNoti/ausencias/(?P<pk>\d+)/$', NotificadorUpdate.as_view(), name='ausencias'),
+    url(r'^listaNoti/$', 'app.views.listingAusencia', name='listNoti'),
+    url(r'^listaNoti/ausencias/$', Ausencias.as_view(), name='ausencias'),
+    url(r'^finalizarAusencia/(?P<id_ausencia>\d+)$','app.views.finalizarAusencia', name='finalizarAusencia'),
     url(r'^servicios/$', ServiciosForm.as_view(), name='servicios'),
     url(r'^pendientes/$', 'app.views.pendientes', name='pendientes'),
     url(r'^enterado/(?P<id_servicio>\d+)$','app.views.enterado'),
@@ -18,5 +19,6 @@ urlpatterns = patterns('',
     url(r'^report_builder/', include('report_builder.urls')),
     url(r'^table/$', 'app.views.listingTable', name='table'),
 
+    (r'^grappelli/', include('grappelli.urls')), # grappelli URLS
     url(r'^admin/', include(admin.site.urls)),
 )

@@ -5,12 +5,17 @@
 {% block cabecera %}Lista de Notificadores{% endblock %}
 
 {% block contenido %}
-	<script>setTimeout(function(){window.location.reload()},25000)</script>
+<script>setTimeout(function(){window.location.reload()},25000)</script>
+	{% if user.is_authenticated == False %}
+		<div id="boton-status">
+			<a class='boton-header' href="/listaNoti/ausencias/">Editar Status</a>
+		</div>
+	{% endif %}
 	{% if user.is_authenticated == False %}	
 		<div class = "datagrid">
 		<table  border="1">
-			<thead><tr><th>Id</th><th>Notificador</th><th>Status</th><th>Editar</th></tr></thead>
-			<tfoot><tr><td colspan="4">
+			<thead><tr><th>Id</th><th>Notificador</th><th>Status</th></tr></thead>
+			<tfoot><tr><td colspan="3">
 			</td></tr></tfoot>
 			<tbody>
 					{% for item in lista %}
@@ -18,7 +23,6 @@
 								<td>{{ forloop.counter }}</td>
 								<td>{{ item.nombre|capfirst }}</td>
 								<td>{{ item.statusNotificador }}</td>
-								<td><a class="boton-header" href="/listaNoti/ausencias/">Editar Status</a></td>
 							</tr>
 					{% endfor %}
 			</tbody>
@@ -28,7 +32,7 @@
 		<table  border="1">
 			<thead><tr><th>Id</th><th>Notificador</th><th>Motivo</th><th>Inicio</th><th>Finalizar</th></tr></thead>
 
-			<tfoot><tr><td colspan="6">
+			<tfoot><tr><td colspan="5">
 			<div id="paging">
 				<ul>
 					{% if ausencias.has_previous %}
@@ -59,7 +63,7 @@
 
 					{% endfor %}
 				{% else %}
-						<td colspan="6"><span class="aviso">No hay ausencias en proceso</span></td>
+						<td colspan="5"><span class="aviso">No hay ausencias en proceso</span></td>
 				{% endif %}
 			</tbody>
 		</table>

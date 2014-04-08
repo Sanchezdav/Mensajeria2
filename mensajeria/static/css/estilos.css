@@ -123,7 +123,7 @@ header #botones-header
 	width: 20%;
 }
 
-header .boton-header
+.boton-header
 {
 	background: rgb(38,182,5);
 	border-radius: 5px;
@@ -142,12 +142,12 @@ header .boton-header
 	transition: all .2s ease;
 }
 
-header .boton-header:hover
+.boton-header:hover
 {
 	background: rgb(37,196,0);
 }
 
-header .boton-header:active
+.boton-header:active
 {
 	box-shadow: rgba(0,0,0,0.6) .2px .2px 1px;
 }
@@ -194,6 +194,14 @@ nav ul li a:hover
 	background: rgb(0,128,0);
 }
 
+#boton-status
+{
+	position: absolute;
+	right: 4em;
+	top: -5em;
+	margin-bottom: 2em;
+}
+
 #contenedor-ausencias
 {
 	background: aliceblue;
@@ -225,6 +233,7 @@ nav ul li a:hover
 	box-sizing: border-box;
 	height: 36em;
 	padding: .5em;
+	position: relative;
 	width: 100%;
 }
 
@@ -630,7 +639,7 @@ input {
 		display: inline-block;
 		margin: .8em;
 		margin-right: 1.3em;
-		margin-top: ..8em;
+		margin-top: .8em;
 	}
 
 	nav ul li a
@@ -690,6 +699,13 @@ input {
 
 @media screen and (min-width : 1000px) and (max-width : 1280px)
 {
+	header #titulo-header
+	{
+		margin: .5em;
+		vertical-align: bottom;
+		width: 55%;
+	}
+
 	#botones-header
 	{
 		text-align: right;
@@ -707,6 +723,13 @@ input {
 
 @media screen and (min-width : 900px) and (max-width : 1050px)
 {
+	header #titulo-header
+	{
+		margin: .5em;
+		vertical-align: bottom;
+		width: 55%;
+	}
+
 	nav
 	{
 		font-size: 1.3em;
@@ -721,7 +744,7 @@ input {
 		display: inline-block;
 		margin: .8em;
 		margin-right: 1.3em;
-		margin-top: ..8em;
+		margin-top: .8em;
 	}
 
 	nav ul li a
@@ -729,4 +752,47 @@ input {
 		padding: 1.3em 1.4em;
 		padding-top: 1.4em;
 	}	
+}
+
+@media screen and (max-width : 950px)
+{
+	header #titulo-header
+	{
+		margin: .5em;
+		vertical-align: bottom;
+		width: 55%;
+	}
+
+	nav
+	{
+		font-size: 1.3em;
+		font-weight: bold;
+		padding: .5em;
+		text-align: center;
+		width: 100%;
+	}
+
+	nav ul li
+	{
+		display: block;
+		margin: .8em;
+		margin-right: 1.3em;
+		margin-top: .8em;
+		margin-bottom: 2.2em;
+	}
+
+	nav ul li a
+	{
+		padding: 1em 17em;
+
+	}	
+
+	.activo
+	{
+		background: rgb(0,128,0);
+		color: white;
+		padding: 1em 17em;
+		padding-top: 1.4em;
+		text-decoration: none;
+	}
 }

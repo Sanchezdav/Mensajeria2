@@ -9,7 +9,6 @@ class ServicioForm(ModelForm):
 		exclude = ('solicitante', 'fechaEnterado', 'fechaFin')
 
 class AusenciaForm(ModelForm):
-	noti = forms.ModelChoiceField(queryset=Notificador.objects.all())
 	class Meta:
 		model = Ausencia
 		exclude = ('fechaInicio', 'fechaFin',)

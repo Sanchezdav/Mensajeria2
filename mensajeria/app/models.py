@@ -1,16 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class Usuario(models.Model):
-	usuario = models.OneToOneField(User)
-	numero_servidor = models.CharField(max_length=50, verbose_name="Numero de Servidor", blank=True, null=True)
-
-	class Meta:
-		verbose_name_plural = 'Perfiles'
-
-	def __unicode__(self):
-		return self.usuario.username
-
 class Status(models.Model):
 	status = models.CharField(max_length=50)
 

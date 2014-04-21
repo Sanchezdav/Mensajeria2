@@ -1,11 +1,6 @@
 from django.contrib import admin
 from app.models import *
 
-class UsuarioAdmin(admin.ModelAdmin):
-	list_display = ('usuario',)
-	raw_id_fields = ('usuario',)
-	search_fields = ('usuario__username',)
-
 class NotificadorAdmin(admin.ModelAdmin):
 	list_display = ('nombre', 'apePaterno', 'apeMaterno', 'statusNotificador')
 
@@ -23,7 +18,6 @@ class AusenciaAdmin(admin.ModelAdmin):
 	list_filter = ('noti', 'motivo')
 	raw_id_fields = ('noti',)
 
-admin.site.register(Usuario, UsuarioAdmin)
 admin.site.register(Status, StatusAdmin)
 admin.site.register(Notificador, NotificadorAdmin)
 admin.site.register(Sitio)

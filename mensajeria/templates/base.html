@@ -6,10 +6,12 @@
   <title>{% block titulo %}{% endblock %}</title>
   <link rel="stylesheet" href="{{ STATIC_URL }}css/estilos.css" type="text/css">
   <link rel="stylesheet" href="{{ STATIC_URL }}css/tabla.css" type="text/css">
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/jquery.growl.css" type="text/css">
   <link href='http://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps' rel='stylesheet' type='text/css'>
   <link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon.ico" />
   <script type='text/javascript' src="{{ STATIC_URL }}js/jquery-1.10.2.min.js"></script>
   <script type='text/javascript' src="{{ STATIC_URL }}js/script.js"></script>
+  <script type='text/javascript' src="{{ STATIC_URL }}js/jquery.growl.js"></script>
 </head>
 <body>
   <header>
@@ -43,6 +45,9 @@
   </nav>
     <div id="titulo-cabecera">
       <h2>{% block cabecera %}{% endblock %}</h2>
+      <div class="cont-noticia">
+        <a id='noticia' class='error' href='#'>Noticia!</a>
+      </div>
     </div>
   <section id="contenido">
     {% block contenido %}{% endblock %}

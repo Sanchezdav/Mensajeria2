@@ -9,4 +9,14 @@ $(document).ready(function(){
 		 });
    },3000);
 
+   $('#noticia').on('click', mensaje);
+
 });
+
+function mensaje()
+{
+	$.growl({ 
+		title: "Nueva Funcion", 
+		message: "El notificador puede asignar su status en Ausencias" 
+	});
+}

@@ -56,7 +56,7 @@ class Servicio(models.Model):
 	fechaInicio = models.DateTimeField(auto_now_add=True)
 	fechaEnterado = models.DateTimeField(auto_now_add=False, blank=True, null=True)
 	fechaFin = models.DateTimeField(auto_now_add=False, blank=True, null=True)
-	sitio = models.ForeignKey(Sitio)
+	sitio = models.ManyToManyField(Sitio)
 	actividad = models.ForeignKey(TipoServicio)
 	comentarios = models.TextField(blank=True, null=True)
 

@@ -1,0 +1,1 @@
+queryset=Notificador.objects.filter(statusNotificador=1).order_by('?')[:1]

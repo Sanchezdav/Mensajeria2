@@ -31,7 +31,7 @@
 								<td>{{ item.solicitante|capfirst }}</td>
 								<td>{{ item.notificador }}</td>
 								<td>{{ item.fechaInicio }}</td>
-								<td>{{ item.sitio }}</td>
+								<td>{% for s in item.sitio.all %}{{ s }}<hr>{% endfor %}</td>
 								<td>{{ item.actividad }}</td>
 								<td>{{ item.comentarios }}</td>
 							{% if user.is_authenticated == False %}	

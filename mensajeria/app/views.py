@@ -38,10 +38,11 @@ class ServiciosForm(CreateView):
 
         form.instance.solicitante = self.request.user
         self.servicio.notificador = form.cleaned_data['notificador']
-        self.servicio.sitio = form.cleaned_data['sitio']
         self.servicio.actividad = form.cleaned_data['actividad']
         self.servicio.comentarios = form.cleaned_data['comentarios']
         self.servicio.save()
+        for s in form.cleaned_data['sitio']:
+                self.servicio.sitio.add(s)
         self.servicio.notificador.statusNotificador = Status.objects.get(id = 2)#Status No Disponible
         self.servicio.notificador.save()
         return super(ServiciosForm, self).form_valid(form)

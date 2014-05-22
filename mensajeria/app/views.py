@@ -9,6 +9,7 @@ from django.http import HttpResponseRedirect
 from .models import Servicio, Status, Notificador, Ausencia
 from .forms import ServicioForm, AusenciaForm
 
+#Vista que me muestra los servicios en el index
 def listing(request):
     lista_servicios = Servicio.objects.filter(fechaFin__isnull=True)
     paginator = Paginator(lista_servicios, 8, orphans=3) 
@@ -22,6 +23,7 @@ def listing(request):
         servicios = paginator.page(paginator.num_pages)
     return render(request, 'index.html', {"servicios": servicios})
 
+#Formulario para dar de alta un servicio
 class ServiciosForm(CreateView):
     model = Servicio
     template_name = 'servicios.html'
@@ -49,12 +51,14 @@ class ServiciosForm(CreateView):
 
 import datetime
 
+#Vista que agrega fecha al campo de enterado de servicios
 def enterado(request, id_servicio):
     enterado = Servicio.objects.get(id=id_servicio)
     enterado.fechaEnterado = datetime.datetime.now()
     enterado.save()
     return HttpResponseRedirect("/")
 
+#Vista que agrega fecha al campo de finalizar de servicios
 def finalizar(request, id_servicio):
     finalizar = Servicio.objects.get(id=id_servicio)
     finalizar.fechaFin = datetime.datetime.now()
@@ -64,6 +68,7 @@ def finalizar(request, id_servicio):
         finalizar.notificador.save()
     return HttpResponseRedirect("/pendientes/")
 
+#Vista que muestra los servicios pendientes por usuario
 @login_required(login_url='/ingresar/')
 def pendientes(request):
     solicitante1 = request.user
@@ -80,6 +85,7 @@ def pendientes(request):
 
     return render(request, 'pendientes.html', {"servicios": servicios})
 
+#Vista que muestra o lista las ausencias de cada notificador
 def listingAusencia(request):
     lista = Notificador.objects.all()
     lista_ausencias = Ausencia.objects.filter(fechaFin__isnull=True)
@@ -94,6 +100,7 @@ def listingAusencia(request):
         ausencias = paginator.page(paginator.num_pages)
     return render(request, 'lista-notificadores.html', {'ausencias': ausencias, 'lista':lista})
 
+#Formulario para poder agregar una ausencia al notificador
 class Ausencias(CreateView):
     model = Ausencia
     template_name = 'ausencias.html'
@@ -110,6 +117,7 @@ class Ausencias(CreateView):
         self.ausencia.noti.save()
         return super(Ausencias, self).form_valid(form)
 
+#Vista que agrega fecha al campo de finalizar en la ausencia
 def finalizarAusencia(request, id_ausencia):
     finalizar = Ausencia.objects.get(id=id_ausencia)
     finalizar.fechaFin = datetime.datetime.now()
@@ -119,6 +127,7 @@ def finalizarAusencia(request, id_ausencia):
         finalizar.noti.save()
     return HttpResponseRedirect("/listaNoti/")
 
+#Vista que lista los servicios en el index por ajax
 def listingTable(request):
     lista_servicios = Servicio.objects.filter(fechaFin__isnull=True)
     paginator = Paginator(lista_servicios, 8, orphans=3) 
